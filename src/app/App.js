@@ -1,9 +1,18 @@
+import React from "react";
+import { BrowserRouter, Route, Routes } from "react-router-dom";
+import loadable from "@loadable/component";
+import Counter from "/features/counter/Counter";
+
+// const Login = loadable(() => import("../pages/login/Login"));
+
 function App() {
   return (
-    <div className="App">
-      <header className="App-header">Learn React</header>
-      <h1>Learn React</h1>
-    </div>
+    <BrowserRouter>
+      <Routes>
+        <Route path="/" element={<Counter />} />
+        {/* <Route path="/login/infoUniv/:univCode" element={<Login />} /> */}
+      </Routes>
+    </BrowserRouter>
   );
 }
 
