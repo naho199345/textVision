@@ -1,6 +1,6 @@
 import React from "react";
 import PropTypes from "prop-types";
-import styles from "mgr/assets/css/alert.module.scss";
+import styles from "assets/css/alert.module.scss";
 import { getOption } from "utils/helper";
 
 const Alert = ({

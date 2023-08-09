@@ -1,7 +1,6 @@
 import React, { useState, useEffect, useRef } from "react";
 import { useParams, useNavigate } from "react-router-dom";
 import { getListRequest, postListRequest } from "utils/api";
-import img_h1_login from "assets/images/h1_login.png";
 import styles from "assets/css/default.module.scss";
 import Dialog from "components/alert/Dialog";
 import {
@@ -128,9 +127,7 @@ const Login = () => {
             <p>
               <img src={logoPath} alt={univName} />
             </p>
-            <h1>
-              <img src={img_h1_login} alt="TextVision 로그인" />
-            </h1>
+            <h1>TextVision 로그인</h1>
           </div>
         </header>
         <div className={styles.contents}>
