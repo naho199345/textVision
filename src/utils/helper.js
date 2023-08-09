@@ -1,7 +1,7 @@
 import * as R from "ramda";
 import cookie from "react-cookies";
 import React, { Suspense } from "react";
-import Alert from "mgr/components/alert/Alert";
+import Alert from "components/alert/Alert";
 // const Alert = React.lazy(() => import('common/components/Alert'));
 import bowser from "bowser"; //브라우저 감지
 import { encryption } from "./crypto";

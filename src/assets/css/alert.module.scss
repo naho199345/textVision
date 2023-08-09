@@ -1,0 +1,210 @@
+/* VARIABLE */
+// $asset_path: "mgr/assets/images";
+
+/* MIXIN */
+@mixin position(
+  $position,
+  $top: null,
+  $right: null,
+  $bottom: null,
+  $left: null
+) {
+  position: $position;
+  top: $top;
+  right: $right;
+  bottom: $bottom;
+  left: $left;
+}
+@mixin background($bg-color: null, $bg-image: null, $bg-position: null) {
+  background-color: $bg-color;
+  background-image: url("../images/#{$bg-image}");
+  background-repeat: no-repeat;
+  background-position: $bg-position;
+}
+
+/* EXTEND */
+.outfocus {
+  &:focus {
+    outline: none;
+  }
+}
+.btn {
+  display: inline-block;
+  vertical-align: middle;
+  text-decoration: none !important;
+  cursor: pointer;
+  letter-spacing: -1px;
+}
+
+/* RESET */
+/*html,
+body {
+  width: 100%;
+  height: 100%;
+}
+body {
+  margin: 0;
+  padding: 0;
+}
+* {
+  box-sizing: border-box;
+}
+ul,
+ol,
+li,
+dl,
+dt,
+dd,
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+fieldset,
+label,
+textarea,
+form,
+p,
+input,
+td,
+th {
+  margin: 0;
+  padding: 0;
+}
+h1,
+h2,
+h3,
+h4,
+input,
+button,
+select,
+div,
+p,
+dt,
+dd,
+li,
+textarea,
+th,
+td,
+label {
+  margin: 0;
+  padding: 0;
+  font-family: "Malgun Gothic", "Dotum", "Sans-serif";
+  color: #555;
+  font-size: 13px;
+  line-height: 1.5em;
+}
+input,
+button {
+  @extend .outfocus;
+  vertical-align: middle;
+  &:disabled,
+  &:-moz-read-only {
+    background-color: #ededed;
+    color: #aaa;
+  }
+  + a {
+    vertical-align: middle;
+  }
+}
+a {
+  text-decoration: none;
+  cursor: pointer;
+  &:hover {
+    text-decoration: underline;
+  }
+}*/
+//reset
+
+/* COMMON */
+.alert_wrap {
+  position: relative;
+  width: 480px;
+  margin: 50px auto;
+  padding: 2px;
+  background: #fff;
+  z-index: 999;
+  .message {
+    margin-top: 80px;
+    padding: 0 40px;
+    text-align: center;
+    font-size: 15px;
+    letter-spacing: -1px;
+    line-height: 1.6em;
+    color: #333;
+    .description {
+      margin-top: 5px;
+      color: #999;
+    }
+  }
+  .alert_btn {
+    margin-top: 35px;
+    a {
+      display: block;
+      width: 100%;
+      height: 40px;
+      line-height: 37px;
+      color: #fff;
+      text-align: center;
+      font-size: 15px;
+      font-weight: bold;
+      &:hover {
+        text-decoration: none;
+      }
+    }
+  }
+  &.success {
+    @include background(
+      $bg_image: "alert_success.png",
+      $bg-position: center 24px
+    );
+    .alert_btn > a {
+      background: #29c3a0;
+    }
+  }
+  &.info {
+    @include background($bg_image: "alert_info.png", $bg-position: center 19px);
+    .alert_btn > a {
+      background: #848484;
+    }
+  }
+  &.error {
+    @include background(
+      $bg_image: "alert_error.png",
+      $bg-position: center 22px
+    );
+    .message {
+      color: #e77722;
+    }
+    .alert_btn > a {
+      background: #feac5e;
+    }
+  }
+  &.confirm {
+    @include background(
+      $bg_image: "alert_confirm.png",
+      $bg-position: center 25px
+    );
+    .alert_btn {
+      &::after {
+        content: "";
+        display: block;
+        clear: both;
+      }
+      > a {
+        float: left;
+        &:first-of-type {
+          background: #3b547b;
+          width: 66.67%;
+        }
+        &:nth-of-type(2) {
+          float: right;
+          width: 32.9%;
+          background: #ededed;
+          color: #555;
+        }
+      }
+    }
+  }
+}

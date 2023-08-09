@@ -22,10 +22,7 @@ module.exports = {
     historyApiFallback: true, //SPA에서 history API를 사용해 주소가 변경되는 것을 저장하려고 할 때 쓰입니다.
   },
   entry: {
-    // main: "./src/index.js",
     index: "./src/index.js",
-    // mgr: "./src/mgr/pages/login/MgrLogin.jsx",
-    // mgr_main: "./src/mgr/pages/main/MgrMain.jsx",
   },
   module: {
     rules: [
@@ -104,8 +101,6 @@ module.exports = {
     ],
     alias: {
       utils: path.resolve("src/utils"),
-      usr: path.resolve("src/usr"),
-      mgr: path.resolve("src/mgr"),
     },
   },
   plugins: [

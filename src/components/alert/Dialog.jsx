@@ -1,7 +1,7 @@
 import React from "react";
 import Modal from "react-modal";
 import PropTypes from "prop-types";
-import styles from "mgr/assets/css/default.module.scss";
+import styles from "assets/css/default.module.scss";
 
 const Dialog = ({ dialog, onClose }) => {
   return (
