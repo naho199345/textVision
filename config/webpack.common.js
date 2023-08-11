@@ -17,7 +17,7 @@ module.exports = {
     compress: true,
     port: 5000,
     proxy: {
-      "/api": "http://127.0.0.1:3131",
+      "/api": "http://127.0.0.1:3131", //"http://127.0.0.1:3301",
     },
     historyApiFallback: true, //SPA에서 history API를 사용해 주소가 변경되는 것을 저장하려고 할 때 쓰입니다.
   },
@@ -32,7 +32,7 @@ module.exports = {
         loader: require.resolve("babel-loader"),
         options: {
           cacheDirectory: true,
-          presets: ["@babel/preset-env", "@babel/preset-react"],
+          presets: ["@babel/preset-env"],
         },
       },
       {
@@ -76,11 +76,7 @@ module.exports = {
       },
     ],
   },
-  node: {
-    // global: true,
-    // __filename: false,
-    // __dirname: false,
-  },
+  node: {},
   output: {
     path: path.resolve(__dirname, "../dist"),
     // filename: "bundle.js",
@@ -100,6 +96,15 @@ module.exports = {
       ".scss",
     ],
     alias: {
+      assets: path.resolve("src/assets"),
+      components: path.resolve("src/components"),
+      constants: path.resolve("src/constants"),
+      container: path.resolve("src/container"),
+      features: path.resolve("src/features"),
+      hooks: path.resolve("src/hooks"),
+      pages: path.resolve("src/pages"),
+      services: path.resolve("src/services"),
+      styles: path.resolve("src/styles"),
       utils: path.resolve("src/utils"),
     },
   },

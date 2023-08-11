@@ -1,8 +1,8 @@
 import React, { useState, useEffect, useRef } from "react";
 import { useParams, useNavigate } from "react-router-dom";
 import { getListRequest, postListRequest } from "utils/api";
-import styles from "assets/css/default.module.scss";
-import Dialog from "components/alert/Dialog";
+import styles from "../../assets/css/default.module.scss";
+import Dialog from "../../components/alert/Dialog";
 import {
   setOption,
   setStringOption,
