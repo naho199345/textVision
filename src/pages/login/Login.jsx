@@ -44,7 +44,6 @@ const Login = () => {
       userId: inputUserId.current.value,
       passWord: inputUserPassword.current.value,
       checked: checked,
-      // univInfo: univInfo,
     };
 
     postListRequest("/api/login", param).then((response) => {
@@ -72,8 +71,6 @@ const Login = () => {
 
         const tmpIpsiYear =
           tmpIpsiList.length > 0 ? tmpIpsiList[0].ipsiYear : "";
-        // const tmpIpsiGubun =
-        //   tmpIpsiList.length > 0 ? tmpIpsiList[0].ipsiGubun : "";
 
         setOption("tv.info", { menuList: tmpMenuList });
         setOption("tv.info", { userInfo: tmpUserInfo });
