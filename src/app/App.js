@@ -4,10 +4,10 @@ import loadable from "@loadable/component";
 import Counter from "features/counter/Counter";
 
 const Login = loadable(() => import("../pages/login/Login"));
-// const TextVision = loadable(() => import("../pages/textVision/TextVision"));
-// const ReTextVision = loadable(() =>
-//   import("../pages/login/reTextVision/ReTextVision")
-// );
+const TextVision = loadable(() => import("../pages/textVision/TextVision"));
+const ReTextVision = loadable(() =>
+  import("../pages/reTextVision/ReTextVision")
+);
 
 function App() {
   return (
@@ -15,8 +15,8 @@ function App() {
       <Routes>
         <Route path="/" element={<Counter />} />
         <Route path="/login/infoUniv/:univCode" element={<Login />} />
-        {/* <Route path="/reTextVision" element={TextVision} />
-        <Route path="TextVision" element={ReTextVision} /> */}
+        <Route path="/textVision" element={<TextVision />} />
+        <Route path="/reTextVision" element={<ReTextVision />} />
       </Routes>
     </BrowserRouter>
   );

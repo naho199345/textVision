@@ -1,8 +1,9 @@
 import React, { useState, useEffect, useRef } from "react";
 import { useParams, useNavigate } from "react-router-dom";
 import { getListRequest, postListRequest } from "utils/api";
-import styles from "../../assets/css/default.module.scss";
-import Dialog from "../../components/alert/Dialog";
+import img_h1_login from "assets/images/h1_login.png";
+import styles from "assets/css/default.module.scss";
+import Dialog from "components/alert/Dialog";
 import {
   setOption,
   setStringOption,
@@ -39,11 +40,13 @@ const Login = () => {
   const handleClick = (e) => {
     e.preventDefault();
     const param = {
+      type: "mgr",
       isMaster: "0",
       neisCode: univInfo.neisCode,
       userId: inputUserId.current.value,
       passWord: inputUserPassword.current.value,
       checked: checked,
+      // univInfo: univInfo,
     };
 
     postListRequest("/api/login", param).then((response) => {
@@ -71,6 +74,8 @@ const Login = () => {
 
         const tmpIpsiYear =
           tmpIpsiList.length > 0 ? tmpIpsiList[0].ipsiYear : "";
+        // const tmpIpsiGubun =
+        //   tmpIpsiList.length > 0 ? tmpIpsiList[0].ipsiGubun : "";
 
         setOption("tv.info", { menuList: tmpMenuList });
         setOption("tv.info", { userInfo: tmpUserInfo });
@@ -78,7 +83,8 @@ const Login = () => {
         setOption("tv.info", { solutionYearList: tmpSolutionYearList });
         setOption("tv.info", { currentSolution: tmpCurrentSolution });
         setStringOption("tv.ipsiYear", tmpIpsiYear);
-        navigate(`/main/`);
+        // setStringOption("tv.ipsiGubun", tmpIpsiGubun);
+        navigate(`/tv/main/`);
       }
     });
   };
@@ -86,14 +92,14 @@ const Login = () => {
   useEffect(() => {
     const tmp = location.pathname.split("/");
     if (tmp.length < 4) return;
-    window.sessionStorage.setItem("linkTv", tmp[3]);
+    window.sessionStorage.setItem("linktv", tmp[3]);
 
     const tmpCookie = getCookie("tvSave");
     if (tmpCookie !== undefined) setChecked(true);
     else setChecked(false);
     setCookieId(tmpCookie);
     if (!univGetCheck) {
-      getListRequest(`/api/account/baseinfo/${univCode}`)
+      getListRequest(`/api/user/baseinfo/${univCode}`)
         .then((response) => {
           if (response.data.data.length > 0 && response.data.success == true) {
             setUnivInfo(response.data.data[0][0]);
@@ -110,10 +116,10 @@ const Login = () => {
 
   if (univGetCheck === true) {
     let univName = "진학대학교";
-    let logoPath = "/api/images/_ui.gif";
+    let logoPath = "/api/tv/images/_ui.gif";
     if (univInfo !== undefined) {
       univName = univInfo.UnivName;
-      logoPath = `/api/file/public/images/${univInfo.logoPath}`;
+      logoPath = `/api/file/${univInfo.logoPath}`;
     }
 
     const alert = "";
@@ -124,7 +130,12 @@ const Login = () => {
             <p>
               <img src={logoPath} alt={univName} />
             </p>
-            <h1>TextVision 로그인</h1>
+            <h1>
+              <img
+                src={img_h1_login}
+                alt="스마트논술채점시스템 관리자 로그인"
+              />
+            </h1>
           </div>
         </header>
         <div className={styles.contents}>
